@@ -10,14 +10,10 @@ router.get("/appointments/:doctor/:date", mainController.appointments)
 //Main Routes 
 router.get("/", mainController.getIndex)
 
-router.get("/", mainController.getIndex)
+router.get("/getappointments/:doctorId/:date", mainController.getAppointments)
 
-router.post("/formSubmission", mainController.formSubmission)
+router.post("/newAppointment", mainController.newAppointment)
 
-router.post("/formSubmission", mainController.formSubmission)
-
-router.delete("/delete", mainController.delete)
-
-router.delete("/delete", mainController.delete)
+router.delete("/deleteAppointment/:id", mainController.deleteAppointment)
 
 module.exports = router

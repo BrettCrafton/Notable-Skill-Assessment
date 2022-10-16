@@ -4,46 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Schedule</title>
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <form action="/formSubmission" method="POST">
-        <select name="">
-            <option required disabled value=''></option>
-            <option value=''></option>
-            <option value=''></option>
-        </select>
-        <input type="text" name="" placeholder="">
-        <input type="text" name="" placeholder="">
-        <input type="date" name="date">
-        <input type="time" name="time">
-        <button type="submit">
-            Submit
-        </button>
-    </form>
+    <div id="doctors">
+        <h2>Doctors</h2>
+        <input type="date" name="date" id="appointmentDate">
+        <ul>
 
-        <% /* %>
+            <% for(let i = 0; i < doctors.length; i++) { %>
+                <li>
+                    <form class="doctorsForm" action="/getAppointments/<%= doctors[i]._id %>/xxxx-xx-xx?_method=GET" method="POST">                       
+                        <button type="submit">
+                            <%= doctors[i].lastName %>, <%= doctors[i].firstName %>
+                        </button>
+                    </form>
+                </li> 
+            <% } %>
 
-        <% for(let i = 0; i < x.length; i++) { %>
-            <li>
-                <form action="/getx/<%= x[i]._id %>?_method=GET" method="POST">                       
-                    <button type="submit">
-                        Submit
-                    </button>
-                </form>
-            </li> 
-        <% } %>
+        </ul>
+    </div>
+    <div id="appointments">
+        <h2>Appointments</h2>
+        <div id="newAppointment">
+            <h3>New Appointment</h3>
+            <form action="/newAppointment" method="POST">
+                <select name="doctor">
 
-        <% for(let i = 0; i < x.length; i++) { %>
-            <li>
-                <form action="/deletex/<%= x[i]._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        <% } %>
+                    <% for(let i = 0; i < doctors.length; i++) { %>
+                        <option value='{"name": "<%= doctors[i].lastName %>, <%= doctors[i].firstName %>", "id": "<%= doctors[i]._id %>" }'>
+                            <%= doctors[i].lastName %>, <%= doctors[i].firstName %>
+                        </option>
+                    <% } %>
 
-        <% */ %>
+                </select>
+                <input type="text" name="firstName" placeholder="First Name">
+                <input type="text" name="lastName" placeholder="Last Name">
+                <input type="date" name="date">
+                <input type="time" name="time" step="900">
+                <select name="kind">
+                    <option value="New Patient">New Patient</option>
+                    <option value="Follow-up">Follow-up</option>
+                </select>
+                <!-- <input type="hidden" name="doctorId"> -->
+                <button type="submit">
+                    Add Appointment
+                </button>
+            </form>
+        </div>
+        <div id="scheduledAppointments">
+            <h3>Scheduled Appointments</h3>
+            <ul>
+                
+                <% for(let i = 0; i < appointments.length; i++) { %>
+                    <li>
+                        Name: <%= appointments[i].firstName %> <%= appointments[i].lastName %>&emsp;
+                        Date: <%= appointments[i].date %>&emsp;
+                        Time: <%= appointments[i].time %>&emsp;
+                        Kind: <%= appointments[i].kind %>&emsp;
+                        Doctor: <%= appointments[i].doctor %>
+
+                        <form action="/deleteAppointment/<%= appointments[i]._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                <% } %>
+                
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
 
     <script type="text/javascript" src="/js/main.js"></script>
 </body>
