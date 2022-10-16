@@ -1,0 +1,29 @@
+{
+  "name": "Notable-Skill-Assessment",
+  "version": "1.0.0",
+  "description": "Notable Skill Assessment",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrettCrafton/Notable-Skill-Assessment.git"
+  },
+  "author": "Brett Crafton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrettCrafton/Notable-Skill-Assessment/issues"
+  },
+  "homepage": "https://github.com/BrettCrafton/Notable-Skill-Assessment#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20"
+  }
+}

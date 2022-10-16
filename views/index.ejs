@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <form action="/formSubmission" method="POST">
+        <select name="">
+            <option required disabled value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+        </select>
+        <input type="text" name="" placeholder="">
+        <input type="text" name="" placeholder="">
+        <input type="date" name="date">
+        <input type="time" name="time">
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+
+        <% /* %>
+
+        <% for(let i = 0; i < x.length; i++) { %>
+            <li>
+                <form action="/getx/<%= x[i]._id %>?_method=GET" method="POST">                       
+                    <button type="submit">
+                        Submit
+                    </button>
+                </form>
+            </li> 
+        <% } %>
+
+        <% for(let i = 0; i < x.length; i++) { %>
+            <li>
+                <form action="/deletex/<%= x[i]._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% } %>
+
+        <% */ %>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
