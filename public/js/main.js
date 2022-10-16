@@ -16,4 +16,5 @@ function setDate(){
 function updateDoctorsAction(){
     doctorList.forEach(doctor => doctor.action = doctor.action.slice(0, -22) + selectedDate + "?_method=GET")
 }
+
 updateDoctorsAction()
